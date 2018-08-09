@@ -64,10 +64,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpaUserControl.domain\SpaUserControl.domain.csproj">
+      <Project>{60b9e205-1ae9-4b4b-8039-8fcc1687a070}</Project>
+      <Name>SpaUserControl.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpaUserControl.Infrastructure\SpaUserControl.Infrastructure.csproj">
+      <Project>{4ef1e2d5-4c39-41a9-96c4-ac7a2bdfdda3}</Project>
+      <Name>SpaUserControl.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
