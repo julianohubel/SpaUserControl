@@ -1,21 +1,24 @@
-﻿using SpaUserControl.domain.Model;
-using System;
-using System.Collections.Generic;
+﻿using SpaUserControlDataContex.domain.Model;
+using SpaUserControlDataContex.Infrastructure.Data.Map;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SpaUserControl.Infrastructure.Data
+namespace SpaUserControlDataContex.Infrastructure.Data
 {
     public class SpaUserControlDataContext : DbContext
     {
         public SpaUserControlDataContext():base("SpaUserControlDataContext")
         {
-            
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public DbSet<User> users { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new UserMap());
+        }
+
 
     }
 }

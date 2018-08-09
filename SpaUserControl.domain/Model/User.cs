@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SpanUserControl.common.Resources;
 using SpanUserControl.common.Validation;
-using SpaUserControl.Common.Validation;
+using SpaUserControlDataContex.Common.Validation;
 
-namespace SpaUserControl.domain.Model
+namespace SpaUserControlDataContex.domain.Model
 {
     public class User
     {

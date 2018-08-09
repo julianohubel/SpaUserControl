@@ -32,7 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpanUserControl.common\SpanUserControl.common.csproj">
@@ -56,6 +64,10 @@
     <ProjectReference Include="..\SpaUserControl.domain\SpaUserControl.domain.csproj">
       <Project>{60b9e205-1ae9-4b4b-8039-8fcc1687a070}</Project>
       <Name>SpaUserControl.domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpaUserControl.Infrastructure\SpaUserControl.Infrastructure.csproj">
+      <Project>{4ef1e2d5-4c39-41a9-96c4-ac7a2bdfdda3}</Project>
+      <Name>SpaUserControl.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
