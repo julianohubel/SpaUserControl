@@ -8,39 +8,45 @@ namespace SpaUserControlDataContex.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private  SpaUserControlDataContext context = new SpaUserControlDataContext();
+        private SpaUserControlDataContext _context;
+
+        public UserRepository(SpaUserControlDataContext context)
+        {
+            this._context = context;
+
+        }
 
         public User Get(string email)
         {
-            return context.users.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
+            return _context.users.Where(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
         }
 
         public User Get(Guid id)
         {
-            return context.users.Where(x => x.Id == id).FirstOrDefault();
+            return _context.users.Where(x => x.Id == id).FirstOrDefault();
         }
 
 
         public void Create(User user)
         {
-            context.users.Add(user);
-            context.SaveChanges();
+            _context.users.Add(user);
+            _context.SaveChanges();
         }
 
         public void Update(User user)
         {
-            context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
-            context.SaveChanges();
+            _context.Entry<User>(user).State = System.Data.Entity.EntityState.Modified;
+            _context.SaveChanges();
         }
         public void Delete(User user)
         {
-            context.users.Remove(user);
-            context.SaveChanges();
+            _context.users.Remove(user);
+            _context.SaveChanges();
         }
      
         public void Dispose()
         {
-            context.Dispose();
+            _context.Dispose();
         }
     }
 }
