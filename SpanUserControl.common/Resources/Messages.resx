@@ -117,43 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DuplicateEmail" xml:space="preserve">
-    <value>E-mail already in use.</value>
+  <data name="PasswordSuccessfulyChanges" xml:space="preserve">
+    <value>Your password was successfully changed.</value>
   </data>
-  <data name="InvalidCredentials" xml:space="preserve">
-    <value>E-mail or password is invalid.</value>
-  </data>
-  <data name="InvalidEmail" xml:space="preserve">
-    <value>Invalid Email</value>
-  </data>
-  <data name="InvalidEmail1" xml:space="preserve">
-    <value>Invalid E-mail</value>
-  </data>
-  <data name="InvalidName" xml:space="preserve">
-    <value>Invalid Name</value>
-  </data>
-  <data name="InvalidPassword" xml:space="preserve">
-    <value>Invalid Password</value>
-  </data>
-  <data name="InvalidPasswordConfirmation" xml:space="preserve">
-    <value>Password confirmation is invalid</value>
-  </data>
-  <data name="InvalidUserEmail" xml:space="preserve">
-    <value>User E-mail is invalid.</value>
-  </data>
-  <data name="InvalidUserName" xml:space="preserve">
-    <value>User name is invalid.</value>
-  </data>
-  <data name="InvalidUserPassword" xml:space="preserve">
-    <value>User password is invalid.</value>
-  </data>
-  <data name="PasswordDoesNotMatch" xml:space="preserve">
-    <value>The passwords does not match.</value>
-  </data>
-  <data name="PasswordsDoNowMatch" xml:space="preserve">
-    <value>Password Do Not Match</value>
-  </data>
-  <data name="UserNotFound" xml:space="preserve">
-    <value>User not found.</value>
+  <data name="ResetPasswordEmailBody" xml:space="preserve">
+    <value>Your new password is {0}</value>
   </data>
 </root>
