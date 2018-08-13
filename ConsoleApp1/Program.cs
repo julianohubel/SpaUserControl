@@ -1,11 +1,15 @@
-﻿using SpaUserControlDataContex.domain.Contracts.Reopositories;
+﻿using SpaUserControl.domain.Contracts.Services;
+using SpaUserControl.Startup;
+using SpaUserControlDataContex.domain.Contracts.Reopositories;
 using SpaUserControlDataContex.domain.Model;
 using SpaUserControlDataContex.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity;
 
 namespace ConsoleApp1
 {
@@ -13,27 +17,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var container = new UnityContainer();
+            DependencyResolver.Resolve(container);
+
+            var service = container.Resolve<IUserService>();
 
             try
             {
-                var user = new User("juliano", "juliano_hubel@hotmail.com");
-                
-                user.SetPassWord("123456", "123456");
-                user.Validate();
-                using (IUserRepository userRep = new UserRepository())
-                {
-                    userRep.Create(user);
-                }
 
-
-                using (IUserRepository userRep = new UserRepository())
-                {
-                    var usr = userRep.Get("juliano_hubel@hotmail.com");
-                    Console.WriteLine(usr.Name);
-                }
-                
-                Console.ReadKey();
-
+                service.Register("Juliano", "juliano.hubel@chleba.net", "123Mudar", "123Mudar");
+                Console.WriteLine("Usuário Cadastrado com sucesso");
+               
             }
             catch(Exception ex)
             {
