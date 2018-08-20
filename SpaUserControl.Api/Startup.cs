@@ -1,5 +1,7 @@
-﻿using Owin;
+﻿using Microsoft.Owin.Security.OAuth;
+using Owin;
 using SpaUserControl.Api.Helpers;
+using SpaUserControl.domain.Contracts.Services;
 using SpaUserControl.Startup;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,7 @@ namespace SpaUserControl.Api
             config.DependencyResolver = new UnityResolver(container);
 
             ConfigureWebApi(config);
+            ConfigureOAuth(app, container.Resolve<IUserService>());
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
@@ -35,6 +38,24 @@ namespace SpaUserControl.Api
                     routeTemplate: "api/{controller}/{id}",
                     defaults: new { id = RouteParameter.Optional }
                 );
+
+        }
+
+        public void ConfigureOAuth(IAppBuilder app, IUserService service)
+        {
+            OAuthAuthorizationServerOptions authorizationServerOptions = new OAuthAuthorizationServerOptions()
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new Microsoft.Owin.PathString("api/security/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
+                Provider = new AuthorizationServerProvider(service)
+
+            };
+
+
+            //Token Generation
+            app.UseOAuthAuthorizationServer(authorizationServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
 
         }
     }
