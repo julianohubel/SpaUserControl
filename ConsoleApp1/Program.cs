@@ -26,10 +26,10 @@ namespace ConsoleApp1
             try
             {
 
-                //service.Register("Juliano", "juliano.hubel@chleba.net", "123Mudar", "123Mudar");
+                service.Register("Juliano", "juliano.hubel@chleba.net", "123Mudar", "123Mudar");
                 SpaUserControlDataContext context = new SpaUserControlDataContext();
 
-               var user = context.users.Where(u => u.Email == "juliano_hubel@hotmail.com").FirstOrDefault();
+               var user = context.users.Where(u => u.Email == "juliano.hubel@chleba.net").FirstOrDefault();
 
                 Console.WriteLine(user.Email);
 
