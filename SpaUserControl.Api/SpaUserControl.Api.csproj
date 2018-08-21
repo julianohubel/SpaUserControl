@@ -141,6 +141,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SpaUserControl.domain\SpaUserControl.domain.csproj">
+      <Project>{60B9E205-1AE9-4B4B-8039-8FCC1687A070}</Project>
+      <Name>SpaUserControl.domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpaUserControl.Startup\SpaUserControl.Startup.csproj">
       <Project>{D1A8329B-2E21-47EB-AF18-83E4D5CC4D85}</Project>
       <Name>SpaUserControl.Startup</Name>

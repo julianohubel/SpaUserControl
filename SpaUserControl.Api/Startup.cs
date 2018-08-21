@@ -1,5 +1,7 @@
-﻿using Owin;
+﻿using Microsoft.Owin.Security.OAuth;
+using Owin;
 using SpaUserControl.Api.Helpers;
+using SpaUserControl.domain.Contracts.Services;
 using SpaUserControl.Startup;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,16 @@ namespace SpaUserControl.Api
                     routeTemplate: "api/{controller}/{id}",
                     defaults: new { id = RouteParameter.Optional }
                 );
+        }
+
+        public void ConfigureOAuth(IAppBuilder app, IUserService)
+        {
+            OAuthAuthorizationServerOptions oAuthAuthorizationServerOptions = new OAuthAuthorizationServerOptions();
+            {
+                allowInsecureHttp =true
+            }
+
+
 
         }
     }
