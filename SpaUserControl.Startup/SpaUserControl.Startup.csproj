@@ -71,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SpaUserControl.bussines\SpaUserControl.bussines.csproj">
+      <Project>{684D0295-B6C4-4C69-8EA4-BB97BDC87F04}</Project>
+      <Name>SpaUserControl.bussines</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SpaUserControl.domain\SpaUserControl.domain.csproj">
       <Project>{60b9e205-1ae9-4b4b-8039-8fcc1687a070}</Project>
       <Name>SpaUserControl.domain</Name>

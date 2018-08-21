@@ -1,14 +1,11 @@
 ﻿using Microsoft.Owin.Security.OAuth;
+using SpanUserControl.common.Resources;
 using SpaUserControl.domain.Contracts.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
-using SpanUserControl.common.Resources;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace SpaUserControl.Api.Security
 {

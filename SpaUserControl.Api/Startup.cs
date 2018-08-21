@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin.Security.OAuth;
 using Owin;
 using SpaUserControl.Api.Helpers;
+using SpaUserControl.Api.Security;
 using SpaUserControl.domain.Contracts.Services;
 using SpaUserControl.Startup;
 using System;
@@ -40,23 +41,13 @@ namespace SpaUserControl.Api
                 );
         }
 
-        public void ConfigureOAuth(IAppBuilder app, IUserService)
-        {
-            OAuthAuthorizationServerOptions oAuthAuthorizationServerOptions = new OAuthAuthorizationServerOptions();
-            {
-                allowInsecureHttp =true
-            }
-
-
-
-        }
 
         public void ConfigureOAuth(IAppBuilder app, IUserService service)
         {
             OAuthAuthorizationServerOptions authorizationServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new Microsoft.Owin.PathString("api/security/token"),
+                TokenEndpointPath = new Microsoft.Owin.PathString("/api/security/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
                 Provider = new AuthorizationServerProvider(service)
 

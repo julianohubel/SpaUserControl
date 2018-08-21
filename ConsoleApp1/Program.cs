@@ -2,6 +2,7 @@
 using SpaUserControl.Startup;
 using SpaUserControlDataContex.domain.Contracts.Reopositories;
 using SpaUserControlDataContex.domain.Model;
+using SpaUserControlDataContex.Infrastructure.Data;
 using SpaUserControlDataContex.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,15 @@ namespace ConsoleApp1
             try
             {
 
-                service.Register("Juliano", "juliano.hubel@chleba.net", "123Mudar", "123Mudar");
-                Console.WriteLine("Usuário Cadastrado com sucesso");
-               
+                //service.Register("Juliano", "juliano.hubel@chleba.net", "123Mudar", "123Mudar");
+                SpaUserControlDataContext context = new SpaUserControlDataContext();
+
+               var user = context.users.Where(u => u.Email == "juliano_hubel@hotmail.com").FirstOrDefault();
+
+                Console.WriteLine(user.Email);
+
+                Console.ReadKey();
+
             }
             catch(Exception ex)
             {
