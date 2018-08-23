@@ -15,7 +15,7 @@ namespace SpaUserControl.domain.Contracts.Services
 
         void ChangePassword(string email, string password, string newPassword, string confirmPassword);
 
-        string resetPassword(string email);
+        string ResetPassword(string email);
 
     }
 }

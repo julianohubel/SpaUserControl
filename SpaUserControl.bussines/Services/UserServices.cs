@@ -51,15 +51,30 @@ namespace SpaUserControl.bussines.Services
             _repository.Update(user);
         }
 
+        public string ResetPassword(string Email)
+        {
+            var user = GetByEmail(Email);
+            string password = user.ResetPassword();
+
+            user.Validate();
+            return password;
+
+        }
+
 
         public User GetByEmail(string email)
         {
-            return _repository.Get(email);
+           var  user = _repository.Get(email);
+
+            if (user == null)
+                throw new Exception(Erros.UserNotFound);
+
+            return user;
         }
 
         public void Register(string name, string email, string password, string confirmPassword)
         {
-            var hasUser = GetByEmail(email);
+            var hasUser = _repository.Get(email);
             if (hasUser != null)
                 throw new Exception(Erros.DuplicateEmail);
 
@@ -70,17 +85,6 @@ namespace SpaUserControl.bussines.Services
             _repository.Create(user);
         }
 
-        public string resetPassword(string email)
-        {
-            var user = GetByEmail(email);
-
-            string password = user.ResetPassword();
-
-            user.Validate();
-
-            _repository.Update(user);
-            return password;
-        }
         public void Dispose()
         {
             _repository.Dispose();
